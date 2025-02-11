@@ -54,6 +54,58 @@
         .gif-container img {
             width: 150px;
             height: auto;
+            max-width: 100%;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            #question {
+                font-size: 20px;
+            }
+
+            .btn {
+                font-size: 16px;
+                padding: 12px 20px;
+            }
+
+            .gif-container img {
+                width: 120px;
+            }
+
+            #yes {
+                font-size: 22px;
+                padding: 12px 20px;
+            }
+
+            #no {
+                font-size: 16px;
+                padding: 10px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #question {
+                font-size: 18px;
+            }
+
+            .btn {
+                font-size: 14px;
+                padding: 10px 15px;
+            }
+
+            .gif-container img {
+                width: 100px;
+            }
+
+            #yes {
+                font-size: 20px;
+                padding: 10px 15px;
+            }
+
+            #no {
+                font-size: 14px;
+                padding: 8px 12px;
+            }
         }
     </style>
 </head>
@@ -75,21 +127,21 @@
         const noButton = document.getElementById("no");
         const noTexts = [
             "No",
-      "tui ekta madarchod?",
-      "accept kor khankir pola",
-      "shauuaa accept kor",
-      "khankir pola marum tore",
-      "madarchod last bar er moto boltesi",
-      "chudir bhai",
-      "tore kintu bhaoira dimu",
-      "abalchoda",
-      "tor nani duida",
-      "accept na korle tor abba duida",
-      "chudir bhai",
-      "aoisfhoaishfoiashf",
-      "dianosour er baccha",
-      "osihf;uaxhfuao",
-      "No :("
+            "tui ekta madarchod?",
+            "accept kor khankir pola",
+            "shauuaa accept kor",
+            "khankir pola marum tore",
+            "madarchod last bar er moto boltesi",
+            "chudir bhai",
+            "tore kintu bhaoira dimu",
+            "abalchoda",
+            "tor nani duida",
+            "accept na korle tor abba duida",
+            "chudir bhai",
+            "aoisfhoaishfoiashf",
+            "dianosour er baccha",
+            "osihf;uaxhfuao",
+            "No :("
         ];
         
         function increaseYes() {
