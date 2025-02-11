@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #question {
+            font-size: 24px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: black;
+        }
+        .btn {
+            font-size: 18px;
+            padding: 15px 25px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 20px;
+            border: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        #yes {
+            background-color: red;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+        #no {
+            background-color: gray;
+            color: white;
+            position: absolute;
+            transition: transform 0.2s linear;
+        }
+        .gif-container {
+            margin-bottom: 20px;
+        }
+        .gif-container img {
+            width: 150px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="gif-container">
+        <img src="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif" alt="Cute Love Bear">
+    </div>
+    <div class="container">
+        <h1 id="question">Will you be my Valentine?</h1>
+        <div style="position: relative; display: inline-block;">
+            <button id="yes" class="btn" onclick="goToCongrats()">Yes</button>
+            <button id="no" class="btn" onclick="increaseYes()" style="position: absolute; left: 100%">No</button>
+        </div>
+    </div>
+    
+    <script>
+        let yesSize = 18;
+        let noClickCount = 0;
+        const noButton = document.getElementById("no");
+        const noTexts = [
+            "No",
+      "tui ekta madarchod?",
+      "accept kor khankir pola",
+      "shauuaa accept kor",
+      "khankir pola marum tore",
+      "madarchod last bar er moto boltesi",
+      "chudir bhai",
+      "tore kintu bhaoira dimu",
+      "abalchoda",
+      "tor nani duida",
+      "accept na korle tor abba duida",
+      "chudir bhai",
+      "aoisfhoaishfoiashf",
+      "dianosour er baccha",
+      "osihf;uaxhfuao",
+      "No :("
+        ];
+        
+        function increaseYes() {
+            yesSize += 15;
+            document.getElementById("yes").style.fontSize = yesSize + "px";
+            document.getElementById("yes").style.padding = (yesSize / 4) + "px";
+            
+            noClickCount++;
+            noButton.innerText = noTexts[noClickCount % noTexts.length];
+            
+            noButton.style.transform = `translateX(${yesSize / 2}px)`;
+            
+            if (yesSize > window.innerWidth) {
+                noButton.style.display = "none";
+            }
+        }
+        
+        function goToCongrats() {
+            window.location.href = "congrats.html";
+        }
+    </script>
+</body>
+</html>
