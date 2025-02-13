@@ -125,36 +125,50 @@
         let yesSize = 18;
         let noClickCount = 0;
         const noButton = document.getElementById("no");
+        const yesButton = document.getElementById("yes");
         const noTexts = [
             "No",
-            "tui ekta madarchod?",
-            "accept kor khankir pola",
-            "shauuaa accept kor",
-            "khankir pola marum tore",
-            "madarchod last bar er moto boltesi",
-            "chudir bhai",
-            "tore kintu bhaoira dimu",
-            "abalchoda",
-            "tor nani duida",
-            "accept na korle tor abba duida",
-            "chudir bhai",
-            "aoisfhoaishfoiashf",
-            "dianosour er baccha",
-            "osihf;uaxhfuao",
-            "No :("
+            "Just hit the button come on",
+            "Think again 😔",
+            "",
+            "Don't u want hugs :( ",
+            "",
+            "I'm gonna cry",
+            "Accha how about unlimited chips",
+            "A big Choco mud cake then",
+            "ACCEPT IT",
+            "Babe please",
+            "Pretty woman be my wife",
+            "Tomorrow is the nikah don't click no",
+            "Alright coming to ur house with the invitation letter",
+            "Bell rings",
+            "U are accepting"
         ];
         
         function increaseYes() {
-            yesSize += 15;
-            document.getElementById("yes").style.fontSize = yesSize + "px";
-            document.getElementById("yes").style.padding = (yesSize / 4) + "px";
+            let screenWidth = window.innerWidth;
             
+            // Adjust the button growth rate based on screen size
+            if (screenWidth > 768) {
+                yesSize += 15; // Large screens
+            } else if (screenWidth > 480) {
+                yesSize += 10; // Medium screens (tablets)
+            } else {
+                yesSize += 7; // Small screens (mobile)
+            }
+
+            yesButton.style.fontSize = yesSize + "px";
+            yesButton.style.padding = (yesSize / 4) + "px";
+
             noClickCount++;
             noButton.innerText = noTexts[noClickCount % noTexts.length];
-            
-            noButton.style.transform = `translateX(${yesSize / 2}px)`;
-            
-            if (yesSize > window.innerWidth) {
+
+            // Limit movement so "No" button doesn't disappear too fast
+            let maxMove = screenWidth / 3; // Max move is 1/3 of the screen width
+            let moveAmount = Math.min(yesSize / 2, maxMove);
+            noButton.style.transform = `translateX(${moveAmount}px)`;
+
+            if (yesSize > screenWidth * 0.7) {
                 noButton.style.display = "none";
             }
         }
