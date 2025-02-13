@@ -22,37 +22,39 @@
             align-items: center;
         }
         #question {
-            font-size: 24px;
             margin-bottom: 20px;
             font-weight: bold;
             color: black;
         }
         .btn {
+            position: relative;
+            align-items: center;
             font-size: 18px;
+            align-items: center;
             padding: 15px 25px;
-            margin: 10px;
+            margin: 5px;
             cursor: pointer;
-            border-radius: 20px;
+            border-radius: 10px;
             border: none;
             transition: transform 0.2s, box-shadow 0.2s;
         }
         #yes {
-            background-color: red;
+            background-color: rgb(2, 129, 15);
             color: white;
             position: relative;
             z-index: 2;
         }
         #no {
-            background-color: gray;
+            background-color: rgb(234, 0, 0);
             color: white;
-            position: absolute;
-            transition: transform 0.2s linear;
+            position: relative;
+      
         }
         .gif-container {
             margin-bottom: 20px;
         }
         .gif-container img {
-            width: 150px;
+            width: 300px;
             height: auto;
             max-width: 100%;
         }
@@ -111,7 +113,7 @@
 </head>
 <body>
     <div class="gif-container">
-        <img src="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif" alt="Cute Love Bear">
+        <img src="t.jpg" alt="Cute Love Bear">
     </div>
     <div class="container">
         <h1 id="question">Will you be my Valentine?</h1>
@@ -130,6 +132,7 @@
             "No",
             "Just hit the button come on",
             "Think again 😔",
+       
             "Don't u want hugs :( ",
             "I'm gonna cry",
             "Accha how about unlimited chips",
@@ -148,11 +151,11 @@
             
             // Adjust the button growth rate based on screen size
             if (screenWidth > 768) {
-                yesSize += 10; // Large screens
+                yesSize += 15; // Large screens
             } else if (screenWidth > 480) {
-                yesSize += 7; // Medium screens (tablets)
+                yesSize += 10; // Medium screens (tablets)
             } else {
-                yesSize += 5; // Small screens (mobile)
+                yesSize += 7; // Small screens (mobile)
             }
 
             yesButton.style.fontSize = yesSize + "px";
